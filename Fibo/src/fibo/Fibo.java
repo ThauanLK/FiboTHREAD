@@ -23,18 +23,22 @@ public class Fibo {
         int num,resultado;
         num = teclado.nextInt();
         long tempo_inicio = System.currentTimeMillis();
-        System.out.println("----------------------------Fibonacci Recursivo----------------------------");
+       System.out.println("----------------------------Fibonacci Recursivo----------------------------");
         resultado = f.fibo_recursivo(num);
         System.out.println("Numero = "+num+" Resultado = "+resultado);
         System.out.println("Tempo Gasto = "+(System.currentTimeMillis() - tempo_inicio));
-        FiboThread f1 = new FiboThread(num);
-        long tempo_inicio2 = System.currentTimeMillis();
         System.out.println("---------------------------Fibonacci Thread--------------------------------");
+        long tempo_inicio2 = System.currentTimeMillis();
+        FiboThread f1 = new FiboThread(num);
+        FiboThread f2 = new FiboThread(num);
         f1.start();
+        f2.start();
         f1.join();
+        f2.join();
         System.out.println("Numero = "+num+" Resultado = "+f1.result);
+        System.out.println("Numero = "+num+" Resultado = "+f2.result);
         System.out.println("Tempo Gasto = "+(System.currentTimeMillis() - tempo_inicio2));
-        
+       
     }
     
 }

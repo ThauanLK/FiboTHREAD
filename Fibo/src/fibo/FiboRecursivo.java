@@ -11,7 +11,7 @@ package fibo;
  */
 public class FiboRecursivo {
     
-    int result = 0;
+    public int result = 0;
     
     public int fibo_recursivo(int num){
         if(num < 2 ) return num;

@@ -16,27 +16,14 @@ public class FiboThread extends Thread{
     private int num;
     public int result;
     
-    public  FiboThread(int num){
+    public FiboThread(int num){
+        super();
         this.num = num;
     }
-
+    
     @Override
     public void run() {
-        if(num < 2) result = num;
-        else{
-            try{
-                FiboThread f1 = new FiboThread(num-1);
-                FiboThread f2 = new FiboThread(num-2);
-                f1.start();
-                f2.start();
-                f1.join();
-                f2.join();
-                result = f1.result + f2.result;
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-            
-        }
+        FiboRecursivo f = new FiboRecursivo();
+        result = f.fibo_recursivo(num);
     }
-    
 }
